@@ -55,15 +55,25 @@
       :show.sync="modalEdit.show"
     >
       <template slot="modal-body" slot-scope="props">
+        <label class="mt-3">Name</label>
+        <input type="text" class="form-control" v-model="props.data.name" />
+        <label class="mt-3">Description</label>
         <input
           type="text"
-          class="form-control mt-4 mb-4"
-          v-model="props.data.name"
-        />
-        <input
-          type="text"
-          class="form-control mt-4 mb-4"
+          class="form-control"
           v-model="props.data.description"
+        />
+        <label class="mt-3">Category</label>
+        <h-select
+          v-model="props.data.categoryValue"
+          label="label"
+          :options="dishesCategories"
+        />
+        <label class="mt-3">Restaurants</label>
+        <h-select
+          v-model="props.data.restaurantValue"
+          label="label"
+          :options="restaurants"
         />
       </template>
       <template slot="modal-footer" slot-scope="props">
@@ -83,16 +93,25 @@
       :show.sync="modalCreate.show"
     >
       <template slot="modal-body" slot-scope="props">
-        <p>Enter Dishes Name</p>
+        <label class="mt-3">Name</label>
+        <input type="text" class="form-control" v-model="props.data.name" />
+        <label class="mt-3">Description</label>
         <input
           type="text"
-          class="form-control mt-4 mb-4"
-          v-model="props.data.name"
-        />
-        <input
-          type="text"
-          class="form-control mt-4 mb-4"
+          class="form-control"
           v-model="props.data.description"
+        />
+        <label class="mt-3">Category</label>
+        <h-select
+          v-model="props.data.categoryValue"
+          label="label"
+          :options="dishesCategories"
+        />
+        <label class="mt-3">Restaurants</label>
+        <h-select
+          v-model="props.data.restaurantValue"
+          label="label"
+          :options="restaurants"
         />
       </template>
       <template slot="modal-footer" slot-scope="props">
@@ -110,22 +129,44 @@
 import Navigation from "../../components/Navigation";
 import Portlet from "../../components/Portlet";
 import Modal from "../../components/Modal";
+import HSelect from "../../components/HSelect";
+
 export default {
   name: "dishes",
-  components: { Modal, Portlet, Navigation },
+  components: { Modal, Portlet, Navigation, HSelect },
   data() {
     return {
       data: [],
       show: false,
+      dishesCategoriesData: [],
+      restaurantsData: [],
       modalEdit: {
         header: "Edit Dishes",
-        data: {},
+        data: {
+          categoryValue: {
+            label: "Category",
+            value: "1"
+          },
+          restaurantValue: {
+            label: "Restaurant",
+            value: "2"
+          }
+        },
         id: "edit-dishes",
         show: false
       },
       modalCreate: {
         header: "Create Dishes",
-        data: {},
+        data: {
+          categoryValue: {
+            label: "Category",
+            value: "1"
+          },
+          restaurantValue: {
+            label: "Restaurant",
+            value: "2"
+          }
+        },
         id: "create-dishes",
         show: false
       }
@@ -135,10 +176,32 @@ export default {
     this.$http
       .get("http://localhost/dishes")
       .then(response => (this.data = response.data));
+    this.$http
+      .get("http://localhost/dishes-categories")
+      .then(response => (this.dishesCategoriesData = response.data));
+    this.$http
+      .get("http://localhost/restaurants")
+      .then(response => (this.restaurantsData = response.data));
   },
   computed: {
     refreshData() {
       return this.data;
+    },
+    dishesCategories() {
+      return this.dishesCategoriesData.map(item => {
+        return {
+          label: item.name,
+          value: item.id
+        };
+      });
+    },
+    restaurants() {
+      return this.restaurantsData.map(item => {
+        return {
+          label: item.name,
+          value: item.id
+        };
+      });
     }
   },
   methods: {
@@ -160,7 +223,9 @@ export default {
     updateData(item) {
       this.$http.patch(`http://localhost/dishes/${item.id}`, {
         name: item.name,
-        description: item.desctiption
+        description: item.description,
+        category_id: item.categoryValue.value,
+        restaurant_id: item.restaurantValue.value
       });
       this.modalEdit.show = false;
     },
@@ -169,7 +234,12 @@ export default {
 
       this.$http
         .post("http://localhost/dishes", {
-          data: { name: item.name, description: item.desctiption }
+          data: {
+            name: item.name,
+            description: item.description,
+            category_id: item.categoryValue.value,
+            restaurant_id: item.restaurantValue.value
+          }
         })
         .finally(() => {
           item.name = "";
