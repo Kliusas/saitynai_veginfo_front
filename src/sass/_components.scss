@@ -8,6 +8,10 @@
     width: 40rem;
     padding: 2.5rem 4.5rem;
   }
+  &--horizontal-full {
+    width: 100%;
+    padding: 2.5rem 4.5rem;
+  }
 }
 .navigation {
   min-height: 4rem;
@@ -42,5 +46,35 @@
   }
   &--mobile {
     margin-top: -4rem;
+  }
+}
+.modal {
+  overflow: inherit;
+
+  &-header,
+  &-footer,
+  &-body {
+    padding: 2rem;
+    border-color: $blue;
+  }
+
+  &-title {
+    color: $black;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+
+  &-backdrop {
+    &--absolute {
+      position: absolute;
+      z-index: auto;
+    }
+  }
+
+  .modal-content {
+    .modal-body {
+      overflow-y: auto;
+      max-height: calc(100vh - 16rem);
+    }
   }
 }

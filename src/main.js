@@ -8,7 +8,7 @@ import "@/services/FontAwesome";
 import "@/sass/style.scss";
 import VueCookies from "vue-cookies";
 
-
+Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 Vue.prototype.$http = Axios;
 Vue.prototype.$cookies = VueCookies;
 Vue.config.productionTip = false;

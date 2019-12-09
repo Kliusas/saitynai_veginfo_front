@@ -2,6 +2,7 @@
   <div
     class="portlet"
     :class="{
+      'portlet--horizontal-full d-flex align-items-center justify-content-between flex-column flex-md-row text-center': horizontalFull,
       'portlet--horizontal d-flex align-items-center justify-content-between flex-column flex-md-row text-center': horizontal
     }"
   >
@@ -13,7 +14,8 @@
 export default {
   name: "Portlet",
   props: {
-    horizontal: Boolean
+    horizontal: Boolean,
+    horizontalFull: Boolean
   }
 };
 </script>
