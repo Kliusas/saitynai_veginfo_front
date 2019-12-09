@@ -4,4 +4,43 @@
   width: 25rem;
   background: $white;
   box-shadow: $box-shadow;
+  &--horizontal {
+    width: 40rem;
+    padding: 2.5rem 4.5rem;
+  }
+}
+.navigation {
+  min-height: 4rem;
+  margin-bottom: 4rem;
+  background: $blue;
+  color: $white;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  &__container {
+    list-style-type: none !important;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+    &--outside {
+      flex-direction: column;
+      padding-bottom: 1rem;
+    }
+  }
+  &__item {
+    margin-right: 1rem;
+    cursor: pointer;
+    &--outside {
+      margin-bottom: 0.5rem;
+      margin-right: 0;
+    }
+    &:hover {
+      color: darken($white, 20%);
+    }
+  }
+  &--mobile {
+    margin-top: -4rem;
+  }
 }
