@@ -22,13 +22,6 @@
             >
               Elements
             </li>
-            <li
-              v-if="$cookies.get('auth')"
-              class="footer__item"
-              @click="$router.replace({ name: 'users' }).catch(err => err)"
-            >
-              Users
-            </li>
           </ul>
           <small class="col-12 col-md-4"> Created by Karolis & Rosita</small>
         </div>

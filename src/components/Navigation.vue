@@ -21,9 +21,6 @@
           >
             Elements
           </li>
-          <li v-if="$cookies.get('auth')" class="navigation__item" @click="$router.replace({ name: 'users' }).catch(err => err)">
-            Users
-          </li>
         </ul>
         <ul
           class="navigation__container navigation__container--mobile d-flex d-md-none" :key="isExpanded"
@@ -68,12 +65,6 @@
             @click="$router.replace({ name: 'elements' }).catch(err => err)"
           >
             Elements
-          </li>
-          <li
-            class="navigation__item navigation__item--outside"
-            @click="$router.replace({ name: 'users' }).catch(err => err)"
-          >
-            Users
           </li>
         </ul>
       </div>
