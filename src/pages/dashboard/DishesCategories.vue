@@ -9,7 +9,7 @@
       <div class="mb-3 col-12" key="deleteBlock" v-if="$cookies.get('auth')">
         <portlet horizontal-full>
           <template slot="title"
-            >Want to add new item?</template
+            >Want to add new Dish Category?</template
           >
           <template slot="content">
             <button
@@ -80,11 +80,12 @@
       :show.sync="modalCreate.show"
     >
       <template slot="modal-body" slot-scope="props">
-        <p>Enter Category Name</p>
+        <p>Enter Dish Category Name</p>
         <input
           type="text"
           class="form-control mt-4 mb-4"
           v-model="props.data.name"
+          placeholder="Category Name"
         />
       </template>
       <template slot="modal-footer" slot-scope="props">
