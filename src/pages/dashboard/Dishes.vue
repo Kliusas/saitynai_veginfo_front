@@ -13,7 +13,7 @@
       >
         <portlet horizontal-full>
           <template slot="title"
-            >Want to add new item?</template
+            >Want to add new Dish?</template
           >
           <template slot="content">
             <button
@@ -62,11 +62,12 @@
     >
       <template slot="modal-body" slot-scope="props">
         <label class="mt-3">Name</label>
-        <input type="text" class="form-control" v-model="props.data.name" />
+        <input type="text" class="form-control" placeholder="Dish Name" v-model="props.data.name" />
         <label class="mt-3">Description</label>
         <input
           type="text"
           class="form-control"
+          placeholder="Describe the dish"
           v-model="props.data.description"
         />
         <label class="mt-3">Category</label>
@@ -100,11 +101,12 @@
     >
       <template slot="modal-body" slot-scope="props">
         <label class="mt-3">Name</label>
-        <input type="text" class="form-control" v-model="props.data.name" />
+        <input type="text" class="form-control" placeholder="Dish Name" v-model="props.data.name" />
         <label class="mt-3">Description</label>
         <input
           type="text"
           class="form-control"
+          placeholder="Describe the dish"
           v-model="props.data.description"
         />
         <label class="mt-3">Category</label>
@@ -150,11 +152,11 @@ export default {
         header: "Edit Dishes",
         data: {
           categoryValue: {
-            label: "Category",
+            label: "Choose a category",
             value: "1"
           },
           restaurantValue: {
-            label: "Restaurant",
+            label: "Where can you order this dish?",
             value: "2"
           }
         },
@@ -165,11 +167,11 @@ export default {
         header: "Create Dishes",
         data: {
           categoryValue: {
-            label: "Category",
+            label: "Choose a category",
             value: "1"
           },
           restaurantValue: {
-            label: "Restaurant",
+            label: "Where can you order this dish?",
             value: "2"
           }
         },
