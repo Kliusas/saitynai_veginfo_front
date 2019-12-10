@@ -48,6 +48,36 @@
     margin-top: -4rem;
   }
 }
+.footer-sticky {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.footer {
+  min-height: 4rem;
+  padding: 2rem 0;
+  background: $white;
+  box-shadow: $box-shadow;
+  color: $black;
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 500;
+  &__container {
+    list-style-type: none !important;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0 !important;
+  }
+  &__item {
+    margin-right: 1rem;
+    cursor: pointer;
+    &:hover {
+      color: lighten(#000, 20%);
+    }
+  }
+}
 .modal {
   overflow: inherit;
 

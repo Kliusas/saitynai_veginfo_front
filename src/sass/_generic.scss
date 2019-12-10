@@ -9,3 +9,37 @@
 .fade-leave-to {
   opacity: 0;
 }
+
+.landing {
+  padding: 7rem 0;
+  box-shadow: $box-shadow;
+  text-align: center;
+  &--grey {
+    background: #f8f8f8;
+  }
+  &__section {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__img {
+    margin-bottom: 2rem;
+    max-width: 15rem;
+    &--avg {
+      max-width: 30rem;
+      img {
+        min-width: 25rem;
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 2rem;
+  }
+
+  &__description {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+}

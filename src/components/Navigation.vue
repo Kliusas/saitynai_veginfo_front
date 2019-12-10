@@ -21,7 +21,7 @@
           >
             Elements
           </li>
-          <li class="navigation__item" @click="$router.replace({ name: 'users' }).catch(err => err)">
+          <li v-if="$cookies.get('auth')" class="navigation__item" @click="$router.replace({ name: 'users' }).catch(err => err)">
             Users
           </li>
         </ul>

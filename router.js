@@ -2,6 +2,7 @@ import VueRouter from "vue-router";
 import Vue from "vue";
 import Dishes from "./src/pages/dashboard/Dishes";
 import Login from "./src/pages/Login";
+import MainLanding from "./src/pages/MainLanding";
 import Dashboard from "./src/pages/Dashboard";
 import DishesCategories from "./src/pages/dashboard/DishesCategories";
 import EventsCategories from "./src/pages/dashboard/EventsCategories";
@@ -27,7 +28,7 @@ const router = new VueRouter({
       path: "/dashboard",
       name: "dashboard",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Dashboard
     },
@@ -35,7 +36,7 @@ const router = new VueRouter({
       path: "/dishes-categories",
       name: "dishes-categories",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: DishesCategories
     },
@@ -43,7 +44,7 @@ const router = new VueRouter({
       path: "/dishes",
       name: "dishes",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Dishes
     },
@@ -51,7 +52,7 @@ const router = new VueRouter({
       path: "/events-categories",
       name: "events-categories",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: EventsCategories
     },
@@ -59,7 +60,7 @@ const router = new VueRouter({
       path: "/events",
       name: "events",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Events
     },
@@ -67,7 +68,7 @@ const router = new VueRouter({
       path: "/ingredients",
       name: "ingredients",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Ingredients
     },
@@ -75,7 +76,7 @@ const router = new VueRouter({
       path: "/product-categories",
       name: "product-categories",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: ProductCategories
     },
@@ -83,7 +84,7 @@ const router = new VueRouter({
       path: "/products",
       name: "products",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Products
     },
@@ -91,7 +92,7 @@ const router = new VueRouter({
       path: "/recipes",
       name: "recipes",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Recipes
     },
@@ -99,7 +100,7 @@ const router = new VueRouter({
       path: "/restaurants",
       name: "restaurants",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Restaurants
     },
@@ -107,7 +108,7 @@ const router = new VueRouter({
       path: "/shop-products",
       name: "shop-products",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: ShopProducts
     },
@@ -123,7 +124,7 @@ const router = new VueRouter({
       path: "/categories",
       name: "categories",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Categories
     },
@@ -131,7 +132,7 @@ const router = new VueRouter({
       path: "/elements",
       name: "elements",
       meta: {
-        requiresAuth: true
+        requiresAuth: false
       },
       component: Elements
     },
@@ -151,6 +152,15 @@ const router = new VueRouter({
         requiresAuth: false
       },
       component: Login
+    },
+    {
+      path: "/",
+      name: "main-landing",
+
+      meta: {
+        requiresAuth: false
+      },
+      component: MainLanding
     },
     {
       path: "/logged",

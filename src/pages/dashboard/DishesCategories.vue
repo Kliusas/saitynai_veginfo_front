@@ -6,7 +6,7 @@
       name="fade"
       mode="out-in"
     >
-      <div class="mb-3 col-12" key="deleteBlock">
+      <div class="mb-3 col-12" key="deleteBlock" v-if="$cookies.get('auth')">
         <portlet horizontal-full>
           <template slot="title"
             >Want to add new item?</template
@@ -31,12 +31,14 @@
           <template slot="content">
             <div>
               <button
+                v-if="$cookies.get('auth')"
                 @click="showModal('edit', type)"
                 class="text-white btn btn-primary m-1 m-md-0 ml-0 ml-md-3"
               >
                 Edit
               </button>
               <button
+                v-if="$cookies.get('auth')"
                 @click="deleteItem(type.id)"
                 class="text-white btn btn-danger m-1 m-md-0 ml-0 ml-md-3"
               >
@@ -94,15 +96,17 @@
         </button>
       </template>
     </modal>
+    <Footer></Footer>
   </div>
 </template>
 <script>
 import Navigation from "../../components/Navigation";
 import Portlet from "../../components/Portlet";
 import Modal from "../../components/Modal";
+import Footer from "../../components/Footer";
 export default {
   name: "dishes-categories",
-  components: { Modal, Portlet, Navigation },
+  components: { Modal, Portlet, Navigation, Footer },
   data() {
     return {
       data: [],

@@ -11,3 +11,9 @@ export default {
   name: "app",
 };
 </script>
+
+<style>
+  #app{
+    padding-bottom: 7rem;
+  }
+</style>
